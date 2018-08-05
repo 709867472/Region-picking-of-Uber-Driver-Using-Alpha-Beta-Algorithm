@@ -1,7 +1,7 @@
 # 1. Problem Description:
 There are 2 Uber drivers(R1 and R2) pick regions in turn. Both of the them are interested in maximizing their profit. And one region can only be picked once. And every region they pick must be adjacent to the privoius regions they picked. If one driver has no region to pick, it mean he or her "Passed".
 
-We assume that Region Profitability List (RPL) will be released in advance by ride-sharing companies. This list shows the profit the driver can get from a specific region. we represent the RPL in an ordered list of tuples (Region_Identifier, Profit_Number). So for a map with 4 regions: A,B,C,D. For example the list might be (A, 10), (B, 8), (C, 10), (D, 7) where A and C have a 10 profitability number followed by B with 8 and D with 7.
+We assume that Region Profitability List (RPL) will be released in advance by ride-sharing companies. This list shows the profit the driver can get from a specific region. we represent the RPL in an ordered list of tuples (Region_Identifier, Profit_Number). So for a map with 4 regions: A, B, C, D. For example the list might be (A,10),(B,8),(C,10),(D,7) where A and C have a 10 profitability number followed by B with 8 and D with 7.
 
 # 2. Evaluation Function:
 Sometimes the RPL is not available due to the ride-sharing company not having enough resources to generate the list that day. In this case the drivers pick the next region using the following heuristic evaluation function:
@@ -24,7 +24,7 @@ Each input file contains an abstract representation of a particular picking acti
 In the case of a current RPL, the program should output the utility values for the nodes at depth D. That is, the leaf nodes of the corresponding activity tree should be either an activity position after exactly D picks (alternating between P1 and P2) or an end-activity position after no more than D picks. In the case of a stale RPL, your program should output the utility values according to the heuristic function for the nodes of the activity tree that correspond to the next pick of the specified driver.
 
 # 4. File Formats:
-**Input.txt**\
+## Input.txt:
 **\<DAY\>**\
 Contains “today” or “yesterday” indicating which day the RPL was posted\
 **\<PLAYER\>**\
@@ -37,3 +37,39 @@ The rows of the adjacency matrix representing the map.\
 Comma separated list of regions picked so far. Will contain “*” if no activity yet.\
 **\<MAX DEPTH\>**\
 determines the maximum depth of your search tree
+
+## Output.txt:
+**\<NEXT REGION TO PICK\>**\
+The next region the <PLAYER> should pick.\
+**\<UTILITY VALUE LIST\>**\
+In the case of a current RPL: A comma separated list of the utility of the \<PLAYER\> at the terminal nodes of the search tree (considering the maximum depth of <MAX DEPTH>) for the activity under the assumption that both players select moves maximizing their utilities. In the case of a stale RPL: A comma separated list of the utility of the <PLAYER> at the next pick nodes under the assumption that both players select moves maximizing their utilities according
+to the heuristic function.
+  
+# 5. Examples:
+## Input File Example 1:
+Today\
+P2
+(A,10),(B,8),(C,10),(D,7)\
+[1,1,1,0]\
+[1,1,0,1]\
+[1,0,1,1]\
+[0,1,1,1]\
+A\
+3
+## Output File Example 1:
+C\
+15,17,17
+
+## Input File Example 2:
+Yesterday\
+R1\
+(A,5),(B,8),(C,11)\
+[1,1,1]\
+[1,1,1]\
+[1,1,1]\
+*\
+0
+## Output File Example 2:
+C\
+7,8,10
+
