@@ -11,5 +11,6 @@ Sometimes the RPL is not available due to the ride-sharing company not having en
 
 In this problem we will represent a map with an adjacency matrix. If 2 regions are adjacent, the coresponded value in the matrix is 1, otherwise it is 0. For example consider a map with 4 regions A,B,C,D and the following adjacency matrix:
 
+<img width="877" alt="screen shot 2018-08-04 at 8 14 15 pm" src="https://user-images.githubusercontent.com/11751622/43682222-fd73c984-9822-11e8-9e47-adfdb6285c8e.png">
 
 A map with this matrix could look like:
