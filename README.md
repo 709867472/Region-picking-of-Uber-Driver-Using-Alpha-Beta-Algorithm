@@ -24,17 +24,16 @@ Each input file contains an abstract representation of a particular picking acti
 In the case of a current RPL, the program should output the utility values for the nodes at depth D. That is, the leaf nodes of the corresponding activity tree should be either an activity position after exactly D picks (alternating between P1 and P2) or an end-activity position after no more than D picks. In the case of a stale RPL, your program should output the utility values according to the heuristic function for the nodes of the activity tree that correspond to the next pick of the specified driver.
 
 # 4. File Formats:
-**Input.txt** . (
-**\<DAY\>**
-Contains “today” or “yesterday” indicating which day the RPL was posted
-**\<PLAYER\>**
-
-Containseither “R1” or “R2” indicating which roommate has next turn
-**\<REGION PROFITABILITY LIST\>**
-Ordered list of tuples (Region_Identifier, Profit_Number).
-**\<ADJACENCY MATRIX ROWS\>**
-The rows of the adjacency matrix representing the map.
-**\<REGIONS PICKED SO FAR\>**
-Comma separated list of regions picked so far. Will contain “*” if no activity yet.
-**\<MAX DEPTH\>**
+**Input.txt**\
+**\<DAY\>**\
+Contains “today” or “yesterday” indicating which day the RPL was posted\
+**\<PLAYER\>**\
+Containseither “R1” or “R2” indicating which roommate has next turn\
+**\<REGION PROFITABILITY LIST\>**\
+Ordered list of tuples (Region_Identifier, Profit_Number).\
+**\<ADJACENCY MATRIX ROWS\>**\
+The rows of the adjacency matrix representing the map.\
+**\<REGIONS PICKED SO FAR\>**\
+Comma separated list of regions picked so far. Will contain “*” if no activity yet.\
+**\<MAX DEPTH\>**\
 determines the maximum depth of your search tree
